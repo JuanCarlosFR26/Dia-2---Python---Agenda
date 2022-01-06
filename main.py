@@ -1,27 +1,22 @@
-agendaContactos = []
-numeroContactos = []
+agenda = {}
 
-def agregarContacto():
-    contactoAdd = input('Introduzca nombre de contacto')
-    numeroAdd = input('Número de contacto')
-    agendaContactos.append(contactoAdd)
-    numeroContactos.append(numeroAdd)
-    print(agendaContactos)
-    print(numeroContactos)
+def añadirContacto():
+    nuevoContacto = agenda.setdefault(input('Nuevo Contacto'), input('Numero de contacto'))
 
-agregarContacto()
-agregarContacto()
+añadirContacto()
+añadirContacto()
+añadirContacto()
 
 
-def buscarNumero():
-    numeroAdd = input('Buscar número')
-    for numero in numeroContactos:
-        if numeroAdd in numeroContactos:
-            print('El número localizado existe y es ', numero)
-            break
-        if numeroAdd not in numeroContactos:
-            print('El número introducido no existe')
-            break
+
+def buscarContacto():
+    cadena = input("Nombre del contacto que quieres buscar")
+    for nombre, value in agenda.items():
+        if nombre.startswith(cadena):
+            print("El número de teléfono de %s es el %s" % (nombre, agenda[nombre]))
 
 
-buscarNumero()
+
+buscarContacto()
+
+
